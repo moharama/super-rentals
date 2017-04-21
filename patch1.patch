@@ -1,0 +1,67 @@
+Index: app/router.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/router.js	(revision 050b2aaa39936b847aa7d2b769a7ef17fca8e87f)
++++ app/router.js	(revision )
+@@ -7,6 +7,9 @@
+ });
+ 
+ Router.map(function() {
++  this.route('about');
++  this.route('contact');
++  this.route('rentals');
+ });
+ 
+ export default Router;
+Index: app/templates/application.hbs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/templates/application.hbs	(revision 050b2aaa39936b847aa7d2b769a7ef17fca8e87f)
++++ app/templates/application.hbs	(revision )
+@@ -1,5 +1,22 @@
+-{{!-- The following component displays Ember's default welcome message. --}}
+-{{welcome-page}}
+-{{!-- Feel free to remove this! --}}
+-
+-{{outlet}}
++<div class="container">
++  <div class="menu">
++    {{#link-to 'index'}}
++      <h1>
++        <em>SuperRentals</em>
++      </h1>
++    {{/link-to}}
++    <div class="links">
++      {{#link-to 'about'}}
++        About
++      {{/link-to}}
++      {{#link-to 'contact'}}
++        Contact
++      {{/link-to}}
++    </div>
++  </div>
++  <div class="body">
++    {{outlet}}
++  </div>
++</div>
++
++
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- package.json	(revision 050b2aaa39936b847aa7d2b769a7ef17fca8e87f)
++++ package.json	(revision )
+@@ -28,6 +28,7 @@
+     "ember-cli-qunit": "^3.1.0",
+     "ember-cli-shims": "^1.0.2",
+     "ember-cli-sri": "^2.1.0",
++    "ember-cli-tutorial-style": "^1.0.1",
+     "ember-cli-uglify": "^1.2.0",
+     "ember-data": "^2.12.0",
+     "ember-export-application-global": "^1.0.5",
